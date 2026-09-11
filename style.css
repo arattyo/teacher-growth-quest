@@ -67,3 +67,14 @@ background:#4caf50;
 
   z-index: 1000;
 }
+
+#titleCharacterImage{
+
+  width: 120px;
+
+  height: 120px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}

@@ -286,18 +286,40 @@ function checkInputAnswer() {
       .toLowerCase()
   ) {
 
+    streak++;
+
+    let gain = 1;
+
+    if (streak >= 10) {
+      gain += 5;
+    }
+    else if (streak >= 5) {
+      gain += 2;
+    }
+    else if (streak >= 3) {
+      gain += 1;
+    }
+
+    gain = Math.min(gain, 3);
+
+    addExp(gain);
+
     document.getElementById("message")
       .textContent =
-      "⭕ 正解";
+      `⭕ 正解 +${gain}EXP`;
 
-  } else {
+} else {
 
-    retryWords.push(currentQuestion);
+  retryWords.push(currentQuestion);
 
-    document.getElementById("message")
-      .textContent =
-      `❌ 正解: ${currentQuestion.english}`;
-  }
+  streak = 0;
+
+  updateStatus();
+
+  document.getElementById("message")
+    .textContent =
+    `❌ 正解: ${currentQuestion.english}`;
+}
 
   setTimeout(nextQuestion, 1000);
 }
@@ -332,6 +354,18 @@ function updateStatus() {
 
   document.getElementById("teacherImage")
   .src = currentStage.image;
+
+  const titleImage =
+    document.getElementById(
+      "titleCharacterImage"
+    );
+
+  if(titleImage){
+
+    titleImage.src =
+      currentStage.image;
+
+  }
 
   document.getElementById("stageText")
     .textContent = currentStage.title;
