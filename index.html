@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>先生育成クエスト</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>先生育成クエスト</h1>
+
+<div id="statusPanel">
+
+  <h3>現在の育成状況</h3>
+
+  <p id="currentTitle">
+    赤ちゃん
+  </p>
+
+  <p id="totalExpDisplay">
+    総EXP: 0
+  </p>
+
+</div>
+
+<div id="startScreen">
+
+<h2>Unitを選択</h2>
+
+<select id="unitSelect"></select>
+
+<h2>モード選択</h2>
+
+<button onclick="startGame('choice')">
+学習モード（4択）
+</button>
+
+<button onclick="startGame('input')">
+テストモード（入力）
+</button>
+
+<button onclick="resetGame()">
+  育成データを初期化
+</button>
+
+</div>
+
+<div id="gameScreen" style="display:none;">
+
+    <button
+      class="backButton"
+      onclick="backToTitle()">
+      ←
+    </button>
+
+<img id="teacherImage"
+src="images/stage1.png">
+
+<h2 id="stageText">赤ちゃん</h2>
+
+<h3>
+  総EXP:
+  <span id="exp">0</span>
+</h3>
+
+<p>🔥連続正解: <span id="streak">0</span></p>
+
+<p id="progress"></p>
+
+<h2 id="question"></h2>
+
+<div id="choiceArea"></div>
+
+<div id="inputArea" style="display:none;">
+<input id="answerInput">
+<button onclick="checkInputAnswer()">
+回答
+</button>
+</div>
+
+<p id="message"></p>
+
+<div id="endButtons" style="display:none;">
+
+  <button onclick="playAgain()">
+    もう一度遊ぶ
+  </button>
+
+  <button onclick="backToTitle()">
+    タイトルに戻る
+  </button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+console.log("index.html内のJSは動作");
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
