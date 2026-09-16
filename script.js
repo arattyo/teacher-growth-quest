@@ -12,7 +12,7 @@ let level = 1;
 let exp = 0;
 let totalExp = 0;
 
-const MAX_EXP = 5;
+const MAX_EXP = 10;
 let streak = 0;
 
 const stages = [
